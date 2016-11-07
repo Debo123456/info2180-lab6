@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<button id="search"></button>
+</body>
+	<script type="text/javascript">
+	
+		var $search = document.getElementById('search');
+		
+		$search.addEventListener("click", function(){
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'request.php?q=definition');
+			xhr.onload = function() {
+    			if (xhr.status === 200) {
+        			alert(xhr.responseText);
+    			}
+    			else {
+        			alert('Request failed.  Returned status of ' + xhr.status);
+    			}
+			};
+			xhr.send();
+		});
+		
+	</script>
+</html>
